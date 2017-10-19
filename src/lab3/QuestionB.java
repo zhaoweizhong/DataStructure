@@ -24,17 +24,17 @@ public class QuestionB {
             }
             ArrayList<Integer> result = new ArrayList<>();
             result.add(0);
-            for (int i = 1; i <= (list1.size() - 1) / 2; i++) {
-                for (int j = 1; j <= (list2.size() - 1) / 2; j++) {
+            for (int i = 1; i <= numOfTerms1; i++) {
+                for (int j = 1; j <= numOfTerms2; j++) {
                     if (list2.get(j * 2).equals(list1.get(i * 2))) {
                         if (list1.get(i * 2 - 1) + list2.get(j * 2 - 1) != 0) {
                             result.add(list1.get(i * 2 - 1) + list2.get(j * 2 - 1));
                             result.add(list1.get(i * 2));
                         }
-                        list1.remove(i * 2 - 1);
-                        list1.remove(i * 2 - 1);
-                        list2.remove(j * 2 - 1);
-                        list2.remove(j * 2 - 1);
+                        list1.set(i * 2 - 1, 0);
+                        list1.set(i * 2, 0);
+                        list2.set(j * 2 - 1, 0);
+                        list2.set(j * 2, 0);
                     }
                 }
             }
@@ -51,10 +51,19 @@ public class QuestionB {
                 }
             }
             for (int r = 1; r <= (result.size() - 1) / 2; r++) {
-                if (r == 1) {
-                    System.out.print(result.get(r * 2 - 1) + "x^" + result.get(r * 2));
+                if (r != 1) {
+                    System.out.print("+");
+                }
+                if (result.get(r * 2).equals(0)) {
+                    System.out.print(result.get(r * 2 - 1));
+                } else if (result.get(r * 2).equals(1) && !result.get(r * 2 - 1).equals(1)) {
+                    System.out.print(result.get(r * 2 - 1) + "x");
+                } else if (result.get(r * 2).equals(1) && result.get(r * 2 - 1).equals(1)) {
+                    System.out.print("x");
+                } else if (result.get(r * 2 - 1).equals(1)) {
+                    System.out.print("x^" + result.get(r * 2));
                 } else {
-                    System.out.print("+" + result.get(r * 2 - 1) + "x^" + result.get(r * 2));
+                    System.out.print(result.get(r * 2 - 1) + "x^" + result.get(r * 2));
                 }
             }
         }
