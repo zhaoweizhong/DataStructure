@@ -9,7 +9,7 @@ public class QuestionA {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int numOfMessages = scanner.nextInt();
-        for (int i = 0; i < numOfMessages; i++) {
+        for (int t = 0; t < numOfMessages; t++) {
             int numSodier1 = scanner.nextInt();
             int numSodier2 = scanner.nextInt();
             scanner.nextLine();
