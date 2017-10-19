@@ -40,28 +40,27 @@ public class QuestionC {
                     }
                     case 4: reverse(); print();
                 }
-
             }
         }
     }
 
-    public static void insert(int value, int position) {
+    private static void insert(int value, int position) {
         group.add(position, value);
     }
 
-    public static void delete(int position) {
+    private static void delete(int position) {
         group.remove(position);
     }
 
-    public static void update(int value, int position) {
+    private static void update(int value, int position) {
         group.set(position, value);
     }
 
-    public static void reverse() {
+    private static void reverse() {
         Collections.reverse(group);
     }
 
-    public static void print() {
+    private static void print() {
         for (int num:group) {
             System.out.print(num + " ");
         }
